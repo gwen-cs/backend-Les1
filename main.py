@@ -41,3 +41,11 @@ def id (id_voornaam, id_achternaam, id_nummer):
 @app.route ("/auto/<string:merk>/<string:type>/<string:kleur>/<int:PK>")
 def auto (merk, type, kleur, PK):
     return render_template("auto.html", merk=escape(merk), type=escape(type), kleur=escape(kleur), PK=escape(PK))
+
+@app.route ("/student/<string:naam>/<int:leeftijd>/<string:richting>")
+def student (naam, leeftijd, richting):
+    return render_template("student.html", naam=escape(naam), leeftijd=escape(leeftijd), richting=escape(richting))
+
+@app.route ("/reis/<path:reisbestemming>")
+def reisbestemming (reisbestemming):
+    return render_template("reis.html", reisbestemming=escape(reisbestemming))
