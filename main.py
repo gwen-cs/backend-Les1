@@ -20,3 +20,24 @@ def groeten(name):
 @app.route('/greetsfrom/<name>')
 def greetsfrom(name):
     return render_template("greetsfrom.html", name=escape(name))
+
+@app.route ("/som/<int:a>/<int:b>")
+def som(a,b):
+    return f"<h1>De som van deze twee is: {a + b}</H1>"
+
+@app.route ("/persoon/<string:naam>/<int:leeftijd>")
+def persoon (naam, leeftijd):
+    return f"<h1>{escape(naam)} is {escape(leeftijd)} jaar oud ! </h1>"
+
+@app.route ("/id/<string:id_voornaam>/<string:id_achternaam>/<int:id_nummer>")
+def id (id_voornaam, id_achternaam, id_nummer):
+    return (f"""
+            <H1> resultaat </h1>
+            <p>Voornaam = {escape(id_voornaam)}</p>
+            <p>Achternaam = {escape(id_achternaam)}</p>
+            <p>ID_nummer = {escape(id_nummer)}</p>
+    """)
+
+@app.route ("/auto/<string:merk>/<string:type>/<string:kleur>/<int:PK>")
+def auto (merk, type, kleur, PK):
+    return render_template("auto.html", merk=escape(merk), type=escape(type), kleur=escape(kleur), PK=escape(PK))
